@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background: #edeffa;
+  color: #1b2350;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-ink text-paper hover:bg-ink/90;
+  }
+  .btn-accent {
+    @apply bg-marigold text-ink hover:brightness-95;
+  }
+  .btn-ghost {
+    @apply border border-ink/25 text-ink hover:bg-mist/60;
+  }
+  .field {
+    @apply w-full rounded-xl border border-ink/20 bg-white/70 px-4 py-2.5 text-base text-ink placeholder:text-ink/40;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-ink/20 px-3 py-1 text-sm;
+  }
+  .chip-on {
+    @apply border-ink bg-ink text-paper;
+  }
+}
+
+/* Meet ticket: notches on the perforation */
+.ticket {
+  position: relative;
+  background: #f0b429;
+  color: #1b2350;
+  border-radius: 18px;
+}
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 62%;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #edeffa;
+}
+.ticket::before {
+  left: -11px;
+}
+.ticket::after {
+  right: -11px;
+}
+.ticket-perf {
+  border-top: 2px dashed rgba(27, 35, 80, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
